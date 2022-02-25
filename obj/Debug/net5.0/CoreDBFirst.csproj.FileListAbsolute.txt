@@ -96,3 +96,4 @@ C:\Users\qtngm\source\repos\EcomerceWebsite\Rookies\CoreDBFirst\obj\Debug\net5.0
 C:\Users\qtngm\source\repos\EcomerceWebsite\Rookies\CoreDBFirst\obj\Debug\net5.0\CoreDBFirst.Views.pdb
 C:\Users\qtngm\source\repos\EcomerceWebsite\Rookies\CoreDBFirst\obj\Debug\net5.0\CoreDBFirst.csproj.CopyComplete
 C:\Users\qtngm\source\repos\EcomerceWebsite\Rookies\CoreDBFirst\obj\Debug\net5.0\CoreDBFirst.genruntimeconfig.cache
+C:\Users\qtngm\source\repos\EcomerceWebsite\Rookies\CoreDBFirst\obj\Debug\net5.0\Razor\Views\Home\ViewCategories.cshtml.g.cs

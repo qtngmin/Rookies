@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CoreDBFirst.Models;
+using CoreDBFirst.Repository;
 
 namespace CoreDBFirst.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IRepository repository)
         {
-            _logger = logger;
-        }
+            _repository = repository;
 
+        }
         public IActionResult Index()
         {
-            return View();
+            var categs =  _repository.GetCategoryList();
+            return View(categs.Data);
         }
 
         public IActionResult Privacy()
@@ -28,6 +30,11 @@ namespace CoreDBFirst.Controllers
             return View();
         }
 
+        public IActionResult Categories()
+        {
+            return View();
+        } 
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

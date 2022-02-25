@@ -1,8 +1,34 @@
-﻿@{
+﻿@model List<CoreDBFirst.Models.Category>
+@{
     ViewData["Title"] = "Home Page";
 }
-
+<div class="">
+    <a class="btn btn-primary" asp-action="View Categories">View Categories</a>
+</div>
+<br/>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NameCategory</th>
+                <th>Discription</th>
+
+                <th colspan="2">Option</th>
+            </tr>
+        </thead>
+        <tbody id="Table_data">
+            @{ 
+                foreach (var column in Model)
+                { 
+                        <tr>
+                            <td>@column.NameCategory</td>
+                            <td>@column.Discription</td>
+                           
+                            @* <td><a class="btn btn-primary" asp-action="UpdateUser" asp-controller="Home" asp-route-Id=@row.Id>Edit User</a></td>
+                            <td><a class="btn btn-danger" asp-action="DeleteUser" asp-controller="Home" asp-route-Id=@row.Id>Delete</a></td> *@
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
 </div>

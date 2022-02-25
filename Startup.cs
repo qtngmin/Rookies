@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreDBFirst.Models;
+using CoreDBFirst.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +27,8 @@ namespace CoreDBFirst
         {
             services.AddControllersWithViews();
             services.AddDbContext<shopee_fakeContext>();
-            // services.AddScoped<IRepository, Repository.Repository>();
+            services.AddScoped<IRepository, Repository.Repository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,10 +57,6 @@ namespace CoreDBFirst
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
-
-        private interface IRepository
-        {
         }
     }
 }

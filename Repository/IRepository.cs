@@ -5,11 +5,13 @@ namespace CoreDBFirst.Repository
 {
     public interface IRepository
     {
-       Response<User>  GetUserById(int id);
+        Response<List<Category>> GetCategoryList();
+        Response<User>  GetUserById(int id);
        Response<List<User>> GetUsers(); 
        Response<string> Delete(int id);
 
        Response<string> UpdateUser(User user);
        Response<string> Insert_data(User _user);
+        
     }
 }

@@ -18,7 +18,6 @@ namespace CoreDBFirst.Models
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -28,7 +27,6 @@ namespace CoreDBFirst.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseMySql("server=localhost;database=shopee_fake;user=root;pwd=nmqt122K", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.27-mysql"));
             }
         }
@@ -76,36 +74,12 @@ namespace CoreDBFirst.Models
                     .HasConstraintName("admin__ibfk_1");
             });
 
-            modelBuilder.Entity<Cart>(entity =>
-            {
-                entity.HasKey(e => e.IdCus)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("cart_");
-
-                entity.HasIndex(e => e.IdCus, "ID_CUS_C")
-                    .IsUnique();
-
-                entity.Property(e => e.IdCus)
-                    .HasMaxLength(9)
-                    .HasColumnName("ID_CUS")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.NumKind).HasColumnName("NUM_KIND");
-
-                entity.HasOne(d => d.IdCusNavigation)
-                    .WithOne(p => p.Cart)
-                    .HasForeignKey<Cart>(d => d.IdCus)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("cart__ibfk_1");
-            });
-
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.HasKey(e => e.NameCategory)
                     .HasName("PRIMARY");
 
-                entity.ToTable("category_");
+                // entity.ToTable("category_");
 
                 entity.Property(e => e.NameCategory)
                     .HasMaxLength(50)
@@ -186,28 +160,6 @@ namespace CoreDBFirst.Models
                     .HasMaxLength(9)
                     .HasColumnName("ID_CUS")
                     .IsFixedLength(true);
-
-                entity.Property(e => e.NumKind).HasColumnName("NUM_KIND");
-
-                entity.Property(e => e.PaymentMethod)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .HasColumnName("PAYMENT_METHOD")
-                    .HasDefaultValueSql("'COD'")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.ShippingFee)
-                    .HasColumnType("double(10,2)")
-                    .HasColumnName("SHIPPING_FEE");
-
-                entity.Property(e => e.StatusOrder)
-                    .HasMaxLength(10)
-                    .HasColumnName("STATUS_ORDER")
-                    .HasDefaultValueSql("'ORDERED'");
-
-                entity.Property(e => e.TotalPrice)
-                    .HasColumnType("double(10,2)")
-                    .HasColumnName("TOTAL_PRICE");
 
                 entity.HasOne(d => d.IdCusNavigation)
                     .WithMany(p => p.Orders)

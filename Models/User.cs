@@ -20,5 +20,10 @@ namespace CoreDBFirst.Models
 
         public virtual ICollection<Admin> Admins { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
+        public int Id { get; internal set; }
+        public string FirstName { get; internal set; }
+        public string LastName { get; internal set; }
+        public string MiddleName { get; internal set; }
+        public string Contact { get; internal set; }
     }
 }
