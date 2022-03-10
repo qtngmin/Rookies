@@ -832,11 +832,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\qtngm\\source\\repos\\EcomerceWebsite\\Rookies\\CoreDBFirst\\CoreDBFirst.csproj",
+      "projectUniqueName": "C:\\Users\\qtngm\\Desktop\\MakeController\\Rookies\\CoreDBFirst.csproj",
       "projectName": "CoreDBFirst",
-      "projectPath": "C:\\Users\\qtngm\\source\\repos\\EcomerceWebsite\\Rookies\\CoreDBFirst\\CoreDBFirst.csproj",
+      "projectPath": "C:\\Users\\qtngm\\Desktop\\MakeController\\Rookies\\CoreDBFirst.csproj",
       "packagesPath": "C:\\Users\\qtngm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\qtngm\\source\\repos\\EcomerceWebsite\\Rookies\\CoreDBFirst\\obj\\",
+      "outputPath": "C:\\Users\\qtngm\\Desktop\\MakeController\\Rookies\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\qtngm\\AppData\\Roaming\\NuGet\\NuGet.Config",

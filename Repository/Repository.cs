@@ -13,26 +13,26 @@ namespace CoreDBFirst.Repository
             _dbContext = dbContext;
 
         }
-        public Response<User> GetUserById(int id)
-        {
-            Response<User> result = new Response<User>();
-            result.Data = _dbContext.Users.Find(id);
-            return result;
-        }
+        // public Response<User> GetUserById(int id)
+        // {
+        //     Response<User> result = new Response<User>();
+        //     result.Data = _dbContext.Users.Find(id);
+        //     return result;
+        // }
 
-        public Response<List<User>> GetUsers()
-        {
-            Response<List<User>> result = new Response<List<User>>();
-            result.Data = _dbContext.Users.ToList(); 
-            return result;
-        }
-        public Response<string> Delete(int id)
+        // public Response<List<User>> GetUsers()
+        // {
+        //     Response<List<User>> result = new Response<List<User>>();
+        //     result.Data = _dbContext.Users.ToList(); 
+        //     return result;
+        // }
+        public Response<string> Delete(string namecateg)
         {
             Response<string> result = new Response<string>();
             try
             {
-                    User data = _dbContext.Users.FirstOrDefault(u => u.Id == id);
-                    _dbContext.Users.Remove(data);
+                    Category data = _dbContext.Categories.FirstOrDefault(u => u.NameCategory == namecateg);
+                    _dbContext.Categories.Remove(data);
                     var res =  _dbContext.SaveChanges();
                     if (res == 1)
                     {
@@ -52,18 +52,17 @@ namespace CoreDBFirst.Repository
             return result;
         }
 
-        public Response<string> UpdateUser(User user)
+        public Response<string> UpdateCategory(Category category)
         {
             Response<string> result = new Response<string>();
             try
             {
                
-                    User data = _dbContext.Users.FirstOrDefault(d => d.Id == user.Id);
+                    Category data = _dbContext.Categories.FirstOrDefault(d => d.NameCategory == category.NameCategory);
 
-                    data.FirstName = user.FirstName;
-                    data.LastName = user.LastName;
-                    data.MiddleName = user.MiddleName;
-                    data.Contact = user.Contact;
+                    data.NameCategory = category.NameCategory;
+                    data.Discription = category.Discription;
+                    
 
                     var res = _dbContext.SaveChanges();
                     if (res == 1)
@@ -82,27 +81,27 @@ namespace CoreDBFirst.Repository
             }
             return result;
         }
-        Response<List<Category>> GetCategoryList()
+        public Response<List<Category>> GetCategoryList()
         {
             Response<List<Category>> result = new Response<List<Category>>();
             result.Data = _dbContext.Categories.ToList(); 
             return result;
         }
 
-        public Response<string> Insert_data(User _user)
+        public Response<string> Insert_data(Category _category)
         {
             Response<string> result = new Response<string>();
             try
             {
                 
-                    var user = _dbContext.Users.FirstOrDefault(d => d.FirstName == _user.FirstName && d.LastName == _user.LastName);
-                    if (user != null) //if name exist update data
+                    var categ = _dbContext.Categories.FirstOrDefault(d => d.NameCategory == _category.NameCategory);
+                    if (categ != null) //if name exist update data
                     {
                         result.Data = "User already Exists!";
                     }
                     else
                     {
-                        _dbContext.Users.Add(_user);
+                        _dbContext.Categories.Add(_category);
                         var res = _dbContext.SaveChanges();
                         if (res == 1)
                         {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+srji2EA5BEwenv8dz6HaPyaG07qIbjtddpbLf0ngoe8QGo3NCAqBw8ZzESjzo7xbY2bY5/7W0Z9GvZzcuTB+g==",
+  "dgSpecHash": "6I7NA+iastnQvWabytS6J8R4KYzBDpVZX9QD5RoZMxZ37RpLv9TBf7PgsgXsFXAdOACrV7uvj2hFmSkKfAjqAA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\qtngm\\source\\repos\\EcomerceWebsite\\Rookies\\CoreDBFirst\\CoreDBFirst.csproj",
+  "projectFilePath": "C:\\Users\\qtngm\\Desktop\\MakeController\\Rookies\\CoreDBFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\qtngm\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\qtngm\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

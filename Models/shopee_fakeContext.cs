@@ -79,7 +79,7 @@ namespace CoreDBFirst.Models
                 entity.HasKey(e => e.NameCategory)
                     .HasName("PRIMARY");
 
-                // entity.ToTable("category_");
+                entity.ToTable("category_");
 
                 entity.Property(e => e.NameCategory)
                     .HasMaxLength(50)

@@ -10,7 +10,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>NameCategory</th>
+                <th>Name Category</th>
                 <th>Discription</th>
 
                 <th colspan="2">Option</th>
@@ -18,14 +18,14 @@
         </thead>
         <tbody id="Table_data">
             @{ 
-                foreach (var column in Model)
+                foreach (var row in Model)
                 { 
                         <tr>
-                            <td>@column.NameCategory</td>
-                            <td>@column.Discription</td>
+                            <td>@row.NameCategory</td>
+                            <td>@row.Discription</td>
                            
-                            @* <td><a class="btn btn-primary" asp-action="UpdateUser" asp-controller="Home" asp-route-Id=@row.Id>Edit User</a></td>
-                            <td><a class="btn btn-danger" asp-action="DeleteUser" asp-controller="Home" asp-route-Id=@row.Id>Delete</a></td> *@
+                            <td><a class="btn btn-primary" asp-action="UpdateCategory" asp-controller="Home" asp-route-Id=@row.NameCategory>Edit Category</a></td>
+                            <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Home" asp-route-Id=@row.Discription>Delete</a></td> 
                         </tr>
                 }
             }
